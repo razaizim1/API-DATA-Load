@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API, DATA Load</title>
+</head>
+
+<body>
+    <h1>JSON</h1>
+    <h2>Javascript Object Notation</h2>
+    <ul id="user-container">
+
+    </ul>
+
+    <script>
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(json => teamDetails(json))
+
+        // function displayUsers(users) {
+        //     const userName = users.map(user => user.name);
+        //     console.log(userName);
+        //     const ul = document.getElementById('user-container');
+
+        //     for (let i = 0; i < userName.length; i++) {
+        //         const newUser = userName[i];
+        //         const li = document.createElement('li');
+        //         li.innerText = newUser;
+        //         ul.appendChild(li);
+
+        //     }
+        // }
+
+        function teamDetails(teams) {
+            const teamEmail = teams.map(team => team.email);
+            console.log(teamEmail)
+            const ul = document.getElementById('user-container');
+
+            for (let i = 0; i < teamEmail.length; i++) {
+                const teamNew = teamEmail[i];
+
+                const li = document.createElement('li');
+                li.innerText = teamNew;
+                ul.appendChild(li);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
